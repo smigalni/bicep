@@ -1,15 +1,43 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      "appServicePlanName": {
-        "value": "BicepIsTheBest"
-      },
-      "skuName": {
-        "value": "F1"
-      },
-      "skuTier": {
-        "value": "Free"
-      }      
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServicePlanName": {
+      "value": "Quizmaster-novanet"
+    },
+    "appServiceName": {
+      "value": "QuizmasterApi-novanet"
+    },
+    "skuName": {
+      "value": "F1"
+    },
+    "skuTier": {
+      "value": "Free"
+    },
+    "staticWebAppName": {
+      "value": "QuizmasterWeb-novanet"
+    },
+    "appServiceTags": {
+      "value": {
+        "Environment": "Production",
+        "SourceControl": "GitHub",
+        "Organization": "Novanet AS",
+        "Repo": "Quizmaster-api"
+      }
+    },
+    "insightsTags": {
+      "value": {
+        "Environment": "Production",
+        "AppServiceName": "QuizmasterApi-novanet"          
+      }
+    },
+    "staticWebAppTags": {
+      "value": {
+        "Environment": "Production",
+        "SourceControl": "GitHub",
+        "Organization": "Novanet AS",
+        "Repo": "quizmaster-web"
+      }
     }
+  }
 }
