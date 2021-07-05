@@ -1,0 +1,40 @@
+name: Create environment
+
+on: 
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  resourceGroupName: BicepCreatedResourceGroup
+  bicepFile: main.bicep
+  bicepParameterFile: deploy.parameters.json
+  location: norwayeast
+
+jobs:
+  create-environment:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@main
+
+    - name: Log into Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Azure CLI Create resource group  
+      uses: Azure/cli@1.0.4
+      with:
+         inlineScript: az group create -n ${{ env.resourceGroupName }} -l ${{ env.location }}
+
+    - name: Deploy Bicep file
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: ${{ env.resourceGroupName }}
+        template: ${{ env.bicepFile }}
+        parameters: ${{ env.bicepParameterFile }}
