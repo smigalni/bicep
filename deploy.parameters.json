@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "appServicePlanName": {
-      "value": "Quizmaster-novanet"
+      "value": "BicepIsTheBest"
     },
     "appServiceName": {
-      "value": "QuizmasterApi-novanet"
+      "value": "BicepIsTheBest"
     },
     "skuName": {
       "value": "F1"
@@ -15,28 +15,25 @@
       "value": "Free"
     },
     "staticWebAppName": {
-      "value": "QuizmasterWeb-novanet"
+      "value": "BicepIsTheBest"
     },
     "appServiceTags": {
       "value": {
         "Environment": "Production",
         "SourceControl": "GitHub",
-        "Organization": "Novanet AS",
-        "Repo": "Quizmaster-api"
+        "Organization": "Sergey .NET"
       }
     },
     "insightsTags": {
       "value": {
-        "Environment": "Production",
-        "AppServiceName": "QuizmasterApi-novanet"          
+        "Environment": "Production"                  
       }
     },
     "staticWebAppTags": {
       "value": {
         "Environment": "Production",
         "SourceControl": "GitHub",
-        "Organization": "Novanet AS",
-        "Repo": "quizmaster-web"
+        "Organization": "Sergey .NET"      
       }
     }
   }
