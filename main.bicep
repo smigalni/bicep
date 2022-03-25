@@ -9,7 +9,7 @@ param staticWebAppTags object
 
 var location = resourceGroup().location 
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2021-01-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2021-03-01' = {
   name: appServicePlanName
   location: location 
   sku: {
@@ -18,7 +18,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2021-01-01' = {
   } 
 }
 
-resource insights 'Microsoft.Insights/components@2020-02-02-preview' = {
+resource insights 'Microsoft.Insights/components@2020-02-02' = {
   name: appServicePlanName
   location: location
   kind: 'web'
@@ -28,7 +28,7 @@ resource insights 'Microsoft.Insights/components@2020-02-02-preview' = {
   }
 }
 
-resource appService 'Microsoft.Web/sites@2021-01-01' = {
+resource appService 'Microsoft.Web/sites@2021-03-01' = {
   name: appServiceName
   location: location
   tags: appServiceTags
