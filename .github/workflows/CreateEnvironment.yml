@@ -29,7 +29,7 @@ jobs:
     - name: Azure CLI Create resource group  
       uses: Azure/cli@1.0.4
       with:
-         inlineScript: az group create -n ${{ env.resourceGroupName }} -l ${{ env.location }}
+         inlineScript: az group create -n MyVeryBestResourceGroup -l 'West Europe'
 
     - name: Deploy Bicep file
       uses: azure/arm-deploy@v1
