@@ -7,7 +7,7 @@ param appServiceTags object
 param insightsTags object
 param staticWebAppTags object
 
-var location = resourceGroup().location 
+param location string = resourceGroup().location 
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-03-01' = {
   name: appServicePlanName
@@ -32,9 +32,7 @@ resource appService 'Microsoft.Web/sites@2021-03-01' = {
   name: appServiceName
   location: location
   tags: appServiceTags
-  dependsOn: [
-    appServicePlan
-  ]
+  
   properties: {
     siteConfig: {
         appSettings: [
@@ -60,11 +58,9 @@ resource appService 'Microsoft.Web/sites@2021-03-01' = {
   }  
 }
 
-// Static web app is not supporeted yet in location Norway East thats why has to be 
-var anotherLocation = 'West Europe'
-resource staticWebApp 'Microsoft.Web/staticSites@2021-01-01' = {
+resource staticWebApp 'Microsoft.Web/staticSites@2021-03-01' = {
   name: staticWebAppName
-  location: anotherLocation
+  location: location
   tags: staticWebAppTags
   properties:{}
   sku:{
